@@ -1,0 +1,40 @@
+{
+  "deploy_settings": {
+    "default": {
+      "skill_id": "amzn1.ask.skill.4a719947-c46d-42c3-ba11-931e35fb0410",
+      "was_cloned": false,
+      "merge": {
+        "manifest": {
+          "apis": {
+            "custom": {
+              "endpoint": {
+                "uri": "ask-custom-findSongName-default"
+              }
+            }
+          }
+        }
+      },
+      "resources": {
+        "manifest": {
+          "eTag": "c0c1dd759ac72e103d699909d54be4ac"
+        },
+        "interactionModel": {
+          "fr-FR": {
+            "eTag": "bb1546d8157f684b02210bd96727bb57"
+          }
+        },
+        "lambda": [
+          {
+            "arn": "arn:aws:lambda:us-east-1:257118833050:function:ask-custom-findSongName-default",
+            "functionName": "arn:aws:lambda:us-east-1:257118833050:function:ask-custom-findSongName-default",
+            "awsRegion": "us-east-1",
+            "alexaUsage": [
+              "custom/default"
+            ],
+            "revisionId": "ff6835cd-d68d-445d-a959-b9c6feb349db"
+          }
+        ]
+      }
+    }
+  }
+}
