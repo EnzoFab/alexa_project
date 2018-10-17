@@ -1,15 +1,18 @@
 /* eslint-disable  func-names */
 /* eslint-disable  no-console */
 
+require('dotenv').config();
 const Alexa = require('ask-sdk-core');
+const Api = require('./services/api.js');
+const sentences = require('./helper/situation_sentences.js');
+
 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
   },
   handle(handlerInput) {
-    const speechText = 'Salut toi ! Je vais essayer de trouver le titre de ta chanson, tu as les paroles ?';
-
+    const speechText = sentences.randomOpenningSentence()
     return handlerInput.responseBuilder
       .speak(speechText)
       .reprompt(speechText)
@@ -54,9 +57,7 @@ const HelpIntentHandler = {
       && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
   },
   handle(handlerInput) {
-    const speechText = 
-    'Tu cherches un titre, ou ma meilleure chanson du moment?\n' +
-     'Donne moi juste les paroles je ferais le reste !';
+    const speechText = sentences.randomHelpSentence();
 
     return handlerInput.responseBuilder
       .speak(speechText)
@@ -73,11 +74,11 @@ const CancelAndStopIntentHandler = {
         || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent');
   },
   handle(handlerInput) {
-    const speechText = 'Goodbye!';
+    const speechText = sentences.randomCloseSentence();
 
     return handlerInput.responseBuilder
       .speak(speechText)
-      .withSimpleCard('Hello World', speechText)
+      .withSimpleCard('A bientot mon pote', speechText)
       .getResponse();
   },
 };
