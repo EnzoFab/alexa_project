@@ -1,31 +1,55 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "gros",
+      "invocationName": "mon gars sur",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
-          "samples": []
+          "samples": [
+            "Annule"
+          ]
         },
         {
           "name": "AMAZON.HelpIntent",
-          "samples": []
+          "samples": [
+            "Qui es-tu",
+            "Comment utiliser l'application",
+            "Comment t'utiliser",
+            "Comment ça fonctionne",
+            "Comment tu fonctionnes",
+            "Comment ça marche"
+          ]
         },
         {
           "name": "AMAZON.StopIntent",
-          "samples": []
+          "samples": [
+            "J'arrête là",
+            "Je m'en vais",
+            "Dors maintenant",
+            "Chut",
+            "Aurevoir"
+          ]
         },
         {
           "name": "AMAZON.NavigateHomeIntent",
-          "samples": []
+          "samples": [
+            "Recommence"
+          ]
         },
         {
           "name": "FindSongNameIntent",
-          "slots": [],
+          "slots": [
+            {
+              "name": "Lyrics",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
           "samples": [
-            "connais tu",
-            "trouve moi",
-            "parole"
+            "connais tu {Lyrics}",
+            "trouve moi {Lyrics}",
+            "parole {Lyrics}",
+            "peux tu me trouver ces paroles {Lyrics}",
+            "le titre de {Lyrics}"
           ]
         }
       ],
