@@ -17,7 +17,10 @@
             "Comment t'utiliser",
             "Comment ça fonctionne",
             "Comment tu fonctionnes",
-            "Comment ça marche"
+            "Comment ça marche",
+            "A l'aide",
+            "Aide moi s'il te plait",
+            "Explique moi comment ça marche"
           ]
         },
         {
@@ -49,11 +52,69 @@
             "trouve moi {Lyrics}",
             "parole {Lyrics}",
             "peux tu me trouver ces paroles {Lyrics}",
-            "le titre de {Lyrics}"
+            "le titre de {Lyrics}",
+            "C'est quoi le titre de {Lyrics}",
+            "Tu connais {Lyrics}",
+            "Mon gars tu connais {Lyrics}",
+            "Retrouve moi le titre de {Lyrics}"
+          ]
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": [
+            "Bingo",
+            "Trop fort",
+            "Bien vu",
+            "Tout à fait",
+            "C'est exact",
+            "Oui c'est celle là",
+            "Oui"
+          ]
+        },
+        {
+          "name": "AMAZON.NoIntent",
+          "samples": [
+            "Essaie la suivante",
+            "Pas du tout",
+            "Tu te trompes ",
+            "Ce n'est pas à celle là que je pensais",
+            "Je ne pensais pas à ça ",
+            "Non"
           ]
         }
       ],
       "types": []
-    }
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "FindSongNameIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "Lyrics",
+              "type": "AMAZON.SearchQuery",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.984720345828.195956278983"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.984720345828.195956278983",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "J'ai besoin des paroles"
+          }
+        ]
+      }
+    ]
   }
 }

@@ -2,15 +2,17 @@
 /* eslint-disable  no-console */
 'use strict';
 
-
+// https://github.com/alexa/skill-sample-nodejs-highlowgame/blob/master/lambda/custom/index.js
 require('dotenv').config();
 const Alexa = require('ask-sdk-core');
 //const Alexa = require('alexa-sdk');
 const APP_ID = undefined;
 const Api = require('./services/api.js');
-const sentences = require('./helper/situation_sentences.js');
-const validations = require('./helper/validation');
+const sentences = require('./helpers/situation_sentences.js');
+const validations = require('./helpers/validation');
 
+
+// Api.search('je manque d\'application comme les gsm t\'as réparé le mal').then(r => console.log(r));
 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
@@ -26,77 +28,131 @@ const LaunchRequestHandler = {
   },
 };
 
-
 const FindSongNameIntent = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
             && handlerInput.requestEnvelope.request.intent.name === 'FindSongNameIntent';
     },
     handle(handlerInput) {
-        const speechText = handlerInput.requestEnvelope.request.intent.slots.Lyrics.value;
+        return Api.search(handlerInput.requestEnvelope.request.intent.slots.Lyrics.value)
+            .then(songs => {
+                let index = 0;  // current songs returns to the users
+                // first we return the first result then in the no intent we will return other songs
+                let speechText = sentences.randomSearchMusicSentence(songs[index].title);
+                handlerInput.attributesManager.setSessionAttributes({
+                    songs: songs,
+                    index // starts with 0
+                });
 
-        return handlerInput.responseBuilder
-            .speak(speechText)
-            .reprompt('vas y mon gars')
-            .withSimpleCard('Hello World', speechText)
-            .getResponse();
+                return handlerInput.responseBuilder.speak(speechText).reprompt(speechText)
+                    .withSimpleCard('trouver un titre', speechText).getResponse()
+
+            }).catch(e => {
+
+                const speechText = 'Désolé ' + e.toString();
+                return handlerInput.responseBuilder
+                    .speak(speechText)
+                    .reprompt(speechText)
+                    .withSimpleCard('Erreur', speechText)
+                    .getResponse();
+
+            })
     },
 };
 
 const HelpIntentHandler = {
-  canHandle(handlerInput) {
-    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-      && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
-  },
-  handle(handlerInput) {
-    const speechText = sentences.randomHelpSentence();
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+            && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
+    },
+    handle(handlerInput) {
+        const speechText = sentences.randomHelpSentence();
 
-    return handlerInput.responseBuilder
-      .speak(speechText)
-      .reprompt(speechText)
-      .withSimpleCard('Aide', speechText)
-      .getResponse();
-  },
+        return handlerInput.responseBuilder
+            .speak(speechText)
+            .reprompt(speechText)
+            .withSimpleCard('Aide', speechText)
+            .getResponse();
+    },
 };
 
 const CancelAndStopIntentHandler = {
-  canHandle(handlerInput) {
-    return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-      && (handlerInput.requestEnvelope.request.intent.name === 'AMAZON.CancelIntent'
-        || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent');
-  },
-  handle(handlerInput) {
-    const speechText = sentences.randomCloseSentence();
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+            && (handlerInput.requestEnvelope.request.intent.name === 'AMAZON.CancelIntent'
+                || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent');
+    },
+    handle(handlerInput) {
+        const speechText = sentences.randomCloseSentence();
 
-    return handlerInput.responseBuilder
-      .speak(speechText)
-      .withSimpleCard('A bientot mon pote', speechText)
-      .getResponse();
-  },
+        return handlerInput.responseBuilder
+            .speak(speechText)
+            .withSimpleCard('A bientot mon pote', speechText)
+            .getResponse();
+    },
+};
+
+const YesIntentHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+            && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.YesIntent'
+    },
+    handle(handlerInput) {
+        let attribute = handlerInput.attributesManager.getSessionAttributes();
+        let speechText = '';
+        if (attribute.songs === undefined) { // user call this intent without have searched a song before
+            speechText = sentences.randomYesSentence();
+        } else {
+            handlerInput.attributesManager.setSessionAttributes({
+                songs: undefined,
+                index: undefined
+            });
+            speechText = sentences.randomSuccessSentence();
+        }
+        return handlerInput.responseBuilder
+            .speak(speechText)
+            .reprompt(speechText)
+            .withSimpleCard('Yes intent', speechText)
+            .getResponse();
+    }
 };
 
 const SessionEndedRequestHandler = {
-  canHandle(handlerInput) {
-    return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
-  },
-  handle(handlerInput) {
-    console.log(`Session ended with reason: ${handlerInput.requestEnvelope.request.reason}`);
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
+    },
+    handle(handlerInput) {
+        console.log(`Session ended with reason: ${handlerInput.requestEnvelope.request.reason}`);
 
-    return handlerInput.responseBuilder.getResponse();
-  },
+        return handlerInput.responseBuilder
+            .getResponse();
+    },
+};
+
+const Unhandled = {
+    canHandle() {
+        return true
+    },
+    handle(handlerInput) {
+        let speechText = 'Desolé je n\'ai pas compris';
+        return handlerInput.responseBuilder
+            .speak(speechText)
+            .withSimpleCard('A bientot mon pote', speechText)
+            .getResponse();
+    },
 };
 
 const ErrorHandler = {
-  canHandle() {
-    return true;
-  },
-  handle(handlerInput, error) {
-      console.log(`Error handled: ${error.message}`);
-      return handlerInput.responseBuilder
-          .speak('Désolé je n\'ai pas compris...')
-          .reprompt('Peux tu réessayer ?')
-          .getResponse();
-  },
+    canHandle(handlerInput, error) {
+        return true;
+    },
+    handle(handlerInput, error) {
+        console.log(`Error handled: ${error.message}`);
+        return handlerInput.responseBuilder
+            .speak('Désolé je n\'ai pas compris...')
+            .reprompt('Peux tu réessayer ?')
+            .getResponse();
+    },
 };
 
 const skillBuilder = Alexa.SkillBuilders.custom();
@@ -106,8 +162,11 @@ exports.handler = skillBuilder
         LaunchRequestHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
+        FindSongNameIntent,
+        YesIntentHandler,
         SessionEndedRequestHandler,
-        FindSongNameIntent
+        Unhandled
+
     )
     .addErrorHandlers(ErrorHandler)
     .lambda();

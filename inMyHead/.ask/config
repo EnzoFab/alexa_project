@@ -20,18 +20,18 @@
         },
         "interactionModel": {
           "fr-FR": {
-            "eTag": "325e1c4330e33df96d6df4f99e144bf6"
+            "eTag": "96550ab83678b6d00997e8460cf86c78"
           }
         },
         "lambda": [
           {
             "arn": "arn:aws:lambda:us-east-1:257118833050:function:ask-custom-findSongName-default",
-            "functionName": "ask-custom-findSongName-default",
+            "functionName": "arn:aws:lambda:us-east-1:257118833050:function:ask-custom-findSongName-default",
             "awsRegion": "us-east-1",
             "alexaUsage": [
               "custom/default"
             ],
-            "revisionId": "723eb26b-502b-4087-8dcf-3c4d8de0af11"
+            "revisionId": "da284b1d-f599-4140-ba92-1928ca12a3ad"
           }
         ]
       }
