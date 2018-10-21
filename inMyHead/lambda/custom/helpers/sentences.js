@@ -27,7 +27,8 @@ const sentences = {
         'Encore gagné !',
         'Autre chose ?',
         'Je m\'impression toute seule',
-        'Moi aussi je suis championne du monde qu\'est ce que tu crois !'
+        'Moi aussi je suis championne du monde qu\'est ce que tu crois !',
+        'je suis devenu celui dont aurait rêvé celui que je rêvais d\'être !'
     ],
     MUSIC_NOT_FOUND_SENTENCES: [ // go to the next music
         'Laisse moi réessayer, * ?',
