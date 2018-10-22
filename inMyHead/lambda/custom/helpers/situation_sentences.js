@@ -35,5 +35,19 @@ module.exports = {
     randomSuccessSentence () {
         let limit = randomNumber(sentences.SUCCESS.length);
         return sentences.SUCCESS[limit]
+    },
+    randomNoSentence () {
+        let limit = randomNumber(sentences.NO_SENTENCES.length);
+        return sentences.NO_SENTENCES[limit]
+    },
+
+    randomMusicNotFoundSentence (title) {
+        let limit = randomNumber(sentences.MUSIC_NOT_FOUND_SENTENCES.length);
+        return sentences.MUSIC_NOT_FOUND_SENTENCES[limit].replace('*', title)
+    },
+
+    randomFailureSentence () {
+        let limit = randomNumber(sentences.FAILURE.length);
+        return sentences.FAILURE[limit]
     }
 };

@@ -117,6 +117,35 @@ const YesIntentHandler = {
     }
 };
 
+
+const NoIntentHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+            && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.NoIntent'
+    },
+    handle(handlerInput) {
+        let attribute = handlerInput.attributesManager.getSessionAttributes();
+        let speechText = '';
+        if (attribute.songs === undefined) { // user call this intent without have searched a song before
+            speechText = sentences.randomNoSentence();
+        } else if (attribute.index + 1 < attribute.songs.length) { // there is at least one option
+            speechText = sentences.randomMusicNotFoundSentence(attribute.songs[attribute.index + 1].title);
+            handlerInput.attributesManager.setSessionAttributes({
+                songs: attribute.songs,
+                index: attribute.index + 1
+            });
+        } else { // no more option
+            speechText = sentences.randomFailureSentence();
+        }
+        return handlerInput.responseBuilder
+            .speak(speechText)
+            .reprompt(speechText)
+            .withSimpleCard('Yes intent', speechText)
+            .getResponse();
+    }
+};
+
+
 const SessionEndedRequestHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
@@ -164,6 +193,7 @@ exports.handler = skillBuilder
         CancelAndStopIntentHandler,
         FindSongNameIntent,
         YesIntentHandler,
+        NoIntentHandler,
         SessionEndedRequestHandler,
         Unhandled
 

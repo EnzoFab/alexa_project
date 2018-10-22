@@ -1,7 +1,7 @@
 {
-  "name": "hello-world",
+  "name": "In My Head",
   "version": "1.0.0",
-  "description": "",
+  "description": "Alexa skill project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,5 +18,8 @@
     "genius-api": "^0.4.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
   }
 }

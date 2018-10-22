@@ -52,11 +52,14 @@
             "trouve moi {Lyrics}",
             "parole {Lyrics}",
             "peux tu me trouver ces paroles {Lyrics}",
+            "peux tu me trouver le titre de {Lyrics}",
             "le titre de {Lyrics}",
             "C'est quoi le titre de {Lyrics}",
             "Tu connais {Lyrics}",
             "Mon gars tu connais {Lyrics}",
-            "Retrouve moi le titre de {Lyrics}"
+            "Je cherche le titre de {Lyrics}",
+            "Retrouve moi le titre de {Lyrics}",
+            "Trouve moi le titre de {Lyrics}"
           ]
         },
         {
@@ -79,7 +82,8 @@
             "Tu te trompes ",
             "Ce n'est pas à celle là que je pensais",
             "Je ne pensais pas à ça ",
-            "Non"
+            "Non",
+            "Non plus"
           ]
         }
       ],

@@ -6,13 +6,14 @@ const sentences = {
         'Hey ! Laisse moi t\'aider avec la musique que tu as dans la tête !',
         'C\'est qui cette Alexa dont tout le monde parle ?',
         'Wesh, chante un coup ? (pas trop vite quand même)',
+        'Un titre contre des paroles ! Marché conclut ?',
         'Vous là ! tu vous me voulez quoi ?'
     ],
     HELP_SENTENCES: [
         'Donne moi juste des paroles je ferai le reste !',
         'Je trouve les titres de chanson dont tu connais les paroles !',
-        'Un titre contre des paroles ! Marché conclut ?',
-        'Si tu parles clairement je devrais m\'en sortir !'
+        'Si tu parles clairement je devrais m\'en sortir !',
+        'Donne moi des paroles. Par exemple: ramenez la coupe à la maison !'
     ],
     MUSIC_SEARCH_RETURN_SENTENCES: [ // '*' will be replace by the title of the song
         'J\'aime bien celle la, *, pas toi ?',
@@ -30,6 +31,12 @@ const sentences = {
         'Moi aussi je suis championne du monde qu\'est ce que tu crois !',
         'je suis devenu celui dont aurait rêvé celui que je rêvais d\'être !'
     ],
+    FAILURE: [
+        'Désolé je n\'ai rien trouvé boss',
+        'Je suis tout vide, plus aucune proposition...',
+        'J\'ai plus rien à proposer essaye autre chose',
+        'J\'ai plus rien... Je ferai mieux la prochaine fois. Promis !'
+    ],
     MUSIC_NOT_FOUND_SENTENCES: [ // go to the next music
         'Laisse moi réessayer, * ?',
         'C\'est peut-être celle-ci, * ?',
@@ -38,18 +45,21 @@ const sentences = {
         'Ca ne peut être que, * !'
     ],
     YES_SENTENCES: [
-        'Tu veux jouer au ni Oui ni Non ? Dommage tu as déjà perdu !',
+        'Ah bon, Tu veux jouer au ni Oui ni Non ? Dommage tu as déjà perdu !',
         'Oui quoi ?',
         'Plait-il ?',
         'Quoi encore ?',
         'Je sais',
-        'Second poteau Pavard !'
+        'Second,  poteau, Pavaaaard !'
     ], // returns to a basic yes intent => the user haven't searched yet
     NO_SENTENCES: [
+        'Non quoi',
+        'Tu veux quoi ?',
         'Ok mec !',
         'D\'accord',
         'Je ne t\'ai rien demandé !',
-        'Reste souple !'
+        'Reste souple !',
+        'Ah bon, Tu veux jouer au ni Oui ni Non ? Dommage tu as déjà perdu !'
     ], // returns to a basic no intent => the user haven't searched yet
     CLOSE_SENTENCES: [
         'Aurevoir !',
