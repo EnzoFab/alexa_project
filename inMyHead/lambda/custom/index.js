@@ -11,6 +11,7 @@ const APP_ID = undefined;
 const Api = require('./services/api.js');
 const sentences = require('./helpers/situation_sentences.js');
 const validations = require('./helpers/validation');
+const random = require('./helpers/random');
 
 //Api.findTopSong('pop').then(console.log);
 // Api.search('je manque d\'application comme les gsm t\'as réparé le mal').then(r => console.log(r));
@@ -29,7 +30,7 @@ const LaunchRequestHandler = {
   },
 };
 
-const FindSongNameIntent = {
+const FindSongNameIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
             && handlerInput.requestEnvelope.request.intent.name === 'FindSongNameIntent';
@@ -62,6 +63,26 @@ const FindSongNameIntent = {
 
             })
     },
+};
+
+const BestSongIntentHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+            && handlerInput.requestEnvelope.request.intent.name === 'BestSongIntent';
+    },
+    handle(handlerInput) {
+        return Api.findTopSong(handlerInput.requestEnvelope.request.intent.slots.Tag.value)
+            .then(songs => {
+                let song = songs[random.randomNumber(songs.length)];
+                let speech = song.title + ' de ' + song.artist;
+                return handlerInput.responseBuilder
+                    .speak(speechText)
+                    .reprompt(speechText)
+                    .withSimpleCard('Erreur', speechText)
+                    .getResponse();
+
+            })
+    }
 };
 
 const HelpIntentHandler = {
@@ -120,7 +141,6 @@ const YesIntentHandler = {
             .getResponse();
     }
 };
-
 
 const NoIntentHandler = {
     canHandle(handlerInput) {
@@ -195,7 +215,8 @@ exports.handler = skillBuilder
         LaunchRequestHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
-        FindSongNameIntent,
+        FindSongNameIntentHandler,
+        BestSongIntentHandler,
         YesIntentHandler,
         NoIntentHandler,
         SessionEndedRequestHandler,

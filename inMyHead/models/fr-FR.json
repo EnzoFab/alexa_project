@@ -6,7 +6,8 @@
               {
                   "name": "AMAZON.CancelIntent",
                   "samples": [
-                      "Annule"
+                      "Annule",
+                      "stop"
                   ]
               },
               {
@@ -88,16 +89,16 @@
                   ]
               },
               {
-                  "name": "BestSong",
+                  "name": "BestSongIntent",
                   "slots": [
                       {
-                          "name": "tag",
+                          "name": "Tag",
                           "type": "musicType"
                       }
                   ],
                   "samples": [
-                      "sors moi le top du genre {tag}",
-                      "les meilleures musique du genre {tag}"
+                      "sors moi le top du genre {Tag}",
+                      "les meilleures musique du genre {Tag}"
                   ]
               }
           ],
@@ -178,12 +179,12 @@
                   ]
               },
               {
-                  "name": "BestSong",
+                  "name": "BestSongIntent",
                   "confirmationRequired": false,
                   "prompts": {},
                   "slots": [
                       {
-                          "name": "tag",
+                          "name": "Tag",
                           "type": "musicType",
                           "confirmationRequired": false,
                           "elicitationRequired": true,

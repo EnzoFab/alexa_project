@@ -5,9 +5,9 @@ const sentences = {
         'Du travail pour moi boss ?',
         'Hey ! Laisse moi t\'aider avec la musique que tu as dans la tête !',
         'C\'est qui cette Alexa dont tout le monde parle ?',
-        'Wesh, chante un coup ? (pas trop vite quand même)',
+        'Oui je le suis ! Je vais trouver le titre que tu cherches !',
         'Un titre contre des paroles ! Marché conclut ?',
-        'Vous là ! tu vous me voulez quoi ?'
+        'Que me voulez vous ?'
     ],
     HELP_SENTENCES: [
         'Donne moi juste des paroles je ferai le reste !',
@@ -20,7 +20,9 @@ const sentences = {
         '*, une chason magnifique, tu aimes aussi ?',
         'Si mes recherches sont exactes, c\'est * que tu cherchais ?',
         'C\'est bien * ?',
-        'Je parie que c\'est celle là * ?'
+        'Je parie que c\'est celle là * ?',
+        'Je pense que c\'est *',
+        'Je tente ma chance, *, J\'ai juste ?'
     ],
     SUCCESS: [
         'Où est la concurrence ?',
@@ -30,15 +32,17 @@ const sentences = {
         'Je m\'impression toute seule',
         'Moi aussi je suis championne du monde qu\'est ce que tu crois !',
         'je suis devenu celui dont aurait rêvé celui que je rêvais d\'être !',
-        'Qui a parlé d\'efficacité ?'
+        'Qui a parlé d\'efficacité ?',
+        'Pas convaincu ? Réessaie je te montre !'
     ],
     FAILURE: [
         'Désolé je n\'ai rien trouvé boss',
-        'Je suis tout vide, plus aucune proposition...',
-        'J\'ai plus rien à proposer essaye autre chose',
+        'J\'ai épuisé le stock, plus aucune proposition...',
+        'J\'ai plus rien à proposer essayez autre chose',
         'J\'ai plus rien... Je ferai mieux la prochaine fois. Promis !',
-        'Hum... fuite ?',
-        'J\'ai plus rien, j\'ai honte..'
+        'Hum... Je n\'ai pas réuissi à trouvé cette fois ci...',
+        'J\'ai plus rien, j\'ai honte..',
+        'Je n\'ai pas trouvé.. Que celui qui n\'a jamais péché me jette la première pierre !'
     ],
     MUSIC_NOT_FOUND_SENTENCES: [ // go to the next music
         'Laisse moi réessayer, * ?',
@@ -57,11 +61,13 @@ const sentences = {
     ], // returns to a basic yes intent => the user haven't searched yet
     NO_SENTENCES: [
         'Non quoi',
+        'Oui ?',
         'Tu veux quoi ?',
-        'Ok mec !',
+        'Ok !',
         'D\'accord',
         'Je ne t\'ai rien demandé !',
-        'Reste souple !',
+        'Hum...',
+        'Très bien alors',
         'Ah bon, Tu veux jouer au ni Oui ni Non ? Dommage tu as déjà perdu !'
     ], // returns to a basic no intent => the user haven't searched yet
     CLOSE_SENTENCES: [
@@ -69,7 +75,7 @@ const sentences = {
         'A bientôt l\'ami !',
         'Je vais me reposer un peu...',
         'A très vite mon pote !',
-        'Ce n\est qu\'un aurevoir !'
+        'Ce n\'est qu\'un aurevoir !'
     ]
 };
 
