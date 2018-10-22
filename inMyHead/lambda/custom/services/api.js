@@ -30,6 +30,25 @@ module.exports = {
 
     findLyrics (title) {
         
+    },
+
+    findTopSong (tag, limit = 10) {
+        return requestPromise(
+            'http://ws.audioscrobbler.com/2.0/?method=tag.gettoptracks&tag='
+            + tag +'&api_key=' + process.env.LAST_FM_API_KEY + '&format=json&limit=' + limit)
+            .then(r => {
+                let o = JSON.parse(r);
+                let result = []
+                for (let i = 0; i < o.tracks.track.length; i++) {
+                    result.push({
+                        title: o.tracks.track[i].name,
+                        artist: o.tracks.track[i].artist.name
+                    })
+                }
+
+                return result;
+            
+            })
     }
 }
    

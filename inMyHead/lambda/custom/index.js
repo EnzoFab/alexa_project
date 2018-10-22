@@ -3,6 +3,7 @@
 'use strict';
 
 // https://github.com/alexa/skill-sample-nodejs-highlowgame/blob/master/lambda/custom/index.js
+//
 require('dotenv').config();
 const Alexa = require('ask-sdk-core');
 //const Alexa = require('alexa-sdk');
@@ -11,7 +12,7 @@ const Api = require('./services/api.js');
 const sentences = require('./helpers/situation_sentences.js');
 const validations = require('./helpers/validation');
 
-
+//Api.findTopSong('pop').then(console.log);
 // Api.search('je manque d\'application comme les gsm t\'as réparé le mal').then(r => console.log(r));
 
 const LaunchRequestHandler = {
@@ -41,14 +42,17 @@ const FindSongNameIntent = {
                 let speechText = sentences.randomSearchMusicSentence(songs[index].title);
                 handlerInput.attributesManager.setSessionAttributes({
                     songs: songs,
-                    index // starts with 0
+                    index: index // starts with 0
                 });
 
                 return handlerInput.responseBuilder.speak(speechText).reprompt(speechText)
                     .withSimpleCard('trouver un titre', speechText).getResponse()
 
             }).catch(e => {
-
+                handlerInput.attributesManager.setSessionAttributes({
+                    songs: undefined,
+                    index: undefined
+                });
                 const speechText = 'Désolé ' + e.toString();
                 return handlerInput.responseBuilder
                     .speak(speechText)
@@ -196,7 +200,6 @@ exports.handler = skillBuilder
         NoIntentHandler,
         SessionEndedRequestHandler,
         Unhandled
-
     )
     .addErrorHandlers(ErrorHandler)
     .lambda();

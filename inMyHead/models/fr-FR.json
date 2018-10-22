@@ -1,124 +1,227 @@
 {
   "interactionModel": {
-    "languageModel": {
-      "invocationName": "mon gars sur",
-      "intents": [
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": [
-            "Annule"
-          ]
-        },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": [
-            "Qui es-tu",
-            "Comment utiliser l'application",
-            "Comment t'utiliser",
-            "Comment ça fonctionne",
-            "Comment tu fonctionnes",
-            "Comment ça marche",
-            "A l'aide",
-            "Aide moi s'il te plait",
-            "Explique moi comment ça marche"
-          ]
-        },
-        {
-          "name": "AMAZON.StopIntent",
-          "samples": [
-            "J'arrête là",
-            "Je m'en vais",
-            "Dors maintenant",
-            "Chut",
-            "Aurevoir"
-          ]
-        },
-        {
-          "name": "AMAZON.NavigateHomeIntent",
-          "samples": [
-            "Recommence"
-          ]
-        },
-        {
-          "name": "FindSongNameIntent",
-          "slots": [
-            {
-              "name": "Lyrics",
-              "type": "AMAZON.SearchQuery"
-            }
-          ],
-          "samples": [
-            "connais tu {Lyrics}",
-            "trouve moi {Lyrics}",
-            "parole {Lyrics}",
-            "peux tu me trouver ces paroles {Lyrics}",
-            "peux tu me trouver le titre de {Lyrics}",
-            "le titre de {Lyrics}",
-            "C'est quoi le titre de {Lyrics}",
-            "Tu connais {Lyrics}",
-            "Mon gars tu connais {Lyrics}",
-            "Je cherche le titre de {Lyrics}",
-            "Retrouve moi le titre de {Lyrics}",
-            "Trouve moi le titre de {Lyrics}"
-          ]
-        },
-        {
-          "name": "AMAZON.YesIntent",
-          "samples": [
-            "Bingo",
-            "Trop fort",
-            "Bien vu",
-            "Tout à fait",
-            "C'est exact",
-            "Oui c'est celle là",
-            "Oui"
-          ]
-        },
-        {
-          "name": "AMAZON.NoIntent",
-          "samples": [
-            "Essaie la suivante",
-            "Pas du tout",
-            "Tu te trompes ",
-            "Ce n'est pas à celle là que je pensais",
-            "Je ne pensais pas à ça ",
-            "Non",
-            "Non plus"
-          ]
-        }
-      ],
-      "types": []
-    },
-    "dialog": {
-      "intents": [
-        {
-          "name": "FindSongNameIntent",
-          "confirmationRequired": false,
-          "prompts": {},
-          "slots": [
-            {
-              "name": "Lyrics",
-              "type": "AMAZON.SearchQuery",
-              "confirmationRequired": false,
-              "elicitationRequired": true,
-              "prompts": {
-                "elicitation": "Elicit.Slot.984720345828.195956278983"
+      "languageModel": {
+          "invocationName": "es tu dans ma tête",
+          "intents": [
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": [
+                      "Annule"
+                  ]
+              },
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": [
+                      "Qui es-tu",
+                      "Comment utiliser l'application",
+                      "Comment t'utiliser",
+                      "Comment ça fonctionne",
+                      "Comment tu fonctionnes",
+                      "Comment ça marche",
+                      "A l'aide",
+                      "Aide moi s'il te plait",
+                      "Explique moi comment ça marche"
+                  ]
+              },
+              {
+                  "name": "AMAZON.StopIntent",
+                  "samples": [
+                      "J'arrête là",
+                      "Je m'en vais",
+                      "Dors maintenant",
+                      "Chut",
+                      "Aurevoir"
+                  ]
+              },
+              {
+                  "name": "AMAZON.NavigateHomeIntent",
+                  "samples": [
+                      "Recommence"
+                  ]
+              },
+              {
+                  "name": "FindSongNameIntent",
+                  "slots": [
+                      {
+                          "name": "Lyrics",
+                          "type": "AMAZON.SearchQuery"
+                      }
+                  ],
+                  "samples": [
+                      "connais tu {Lyrics}",
+                      "trouve moi {Lyrics}",
+                      "parole {Lyrics}",
+                      "peux tu me trouver ces paroles {Lyrics}",
+                      "peux tu me trouver le titre de {Lyrics}",
+                      "le titre de {Lyrics}",
+                      "C'est quoi le titre de {Lyrics}",
+                      "Tu connais {Lyrics}",
+                      "Mon gars tu connais {Lyrics}",
+                      "Je cherche le titre de {Lyrics}",
+                      "Retrouve moi le titre de {Lyrics}",
+                      "Trouve moi le titre de {Lyrics}"
+                  ]
+              },
+              {
+                  "name": "AMAZON.YesIntent",
+                  "samples": [
+                      "Bingo",
+                      "Trop fort",
+                      "Bien vu",
+                      "Tout à fait",
+                      "C'est exact",
+                      "Oui c'est celle là",
+                      "Oui"
+                  ]
+              },
+              {
+                  "name": "AMAZON.NoIntent",
+                  "samples": [
+                      "Essaie la suivante",
+                      "Pas du tout",
+                      "Tu te trompes ",
+                      "Ce n'est pas à celle là que je pensais",
+                      "Je ne pensais pas à ça ",
+                      "Non",
+                      "Non plus",
+                      "Toujours pas"
+                  ]
+              },
+              {
+                  "name": "BestSong",
+                  "slots": [
+                      {
+                          "name": "tag",
+                          "type": "musicType"
+                      }
+                  ],
+                  "samples": [
+                      "sors moi le top du genre {tag}",
+                      "les meilleures musique du genre {tag}"
+                  ]
               }
-            }
+          ],
+          "types": [
+              {
+                  "name": "musicType",
+                  "values": [
+                      {
+                          "name": {
+                              "value": "metal"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "soul"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "trance"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "jazz"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "dance"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "rock"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "electronic"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "disco"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "pop"
+                          }
+                      },
+                      {
+                          "name": {
+                              "value": "rap"
+                          }
+                      }
+                  ]
+              }
           ]
-        }
-      ]
-    },
-    "prompts": [
-      {
-        "id": "Elicit.Slot.984720345828.195956278983",
-        "variations": [
+      },
+      "dialog": {
+          "intents": [
+              {
+                  "name": "FindSongNameIntent",
+                  "confirmationRequired": false,
+                  "prompts": {},
+                  "slots": [
+                      {
+                          "name": "Lyrics",
+                          "type": "AMAZON.SearchQuery",
+                          "confirmationRequired": false,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "elicitation": "Elicit.Slot.984720345828.195956278983"
+                          }
+                      }
+                  ]
+              },
+              {
+                  "name": "BestSong",
+                  "confirmationRequired": false,
+                  "prompts": {},
+                  "slots": [
+                      {
+                          "name": "tag",
+                          "type": "musicType",
+                          "confirmationRequired": false,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "elicitation": "Elicit.Slot.529799119849.627465754581"
+                          }
+                      }
+                  ]
+              }
+          ]
+      },
+      "prompts": [
           {
-            "type": "PlainText",
-            "value": "J'ai besoin des paroles"
+              "id": "Elicit.Slot.984720345828.195956278983",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "J'ai besoin des paroles"
+                  }
+              ]
+          },
+          {
+              "id": "Elicit.Slot.529799119849.627465754581",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "Je ne peux pas chercher sans le type de musique"
+                  },
+                  {
+                      "type": "PlainText",
+                      "value": "Il manque le type de musique"
+                  },
+                  {
+                      "type": "PlainText",
+                      "value": "Quel type ?"
+                  }
+              ]
           }
-        ]
-      }
-    ]
+      ]
   }
 }

@@ -29,13 +29,16 @@ const sentences = {
         'Autre chose ?',
         'Je m\'impression toute seule',
         'Moi aussi je suis championne du monde qu\'est ce que tu crois !',
-        'je suis devenu celui dont aurait rêvé celui que je rêvais d\'être !'
+        'je suis devenu celui dont aurait rêvé celui que je rêvais d\'être !',
+        'Qui a parlé d\'efficacité ?'
     ],
     FAILURE: [
         'Désolé je n\'ai rien trouvé boss',
         'Je suis tout vide, plus aucune proposition...',
         'J\'ai plus rien à proposer essaye autre chose',
-        'J\'ai plus rien... Je ferai mieux la prochaine fois. Promis !'
+        'J\'ai plus rien... Je ferai mieux la prochaine fois. Promis !',
+        'Hum... fuite ?',
+        'J\'ai plus rien, j\'ai honte..'
     ],
     MUSIC_NOT_FOUND_SENTENCES: [ // go to the next music
         'Laisse moi réessayer, * ?',
@@ -63,8 +66,10 @@ const sentences = {
     ], // returns to a basic no intent => the user haven't searched yet
     CLOSE_SENTENCES: [
         'Aurevoir !',
-        'A bientot l\'ami !',
-        'Je vais me reposer un peu...'
+        'A bientôt l\'ami !',
+        'Je vais me reposer un peu...',
+        'A très vite mon pote !',
+        'Ce n\est qu\'un aurevoir !'
     ]
 };
 
