@@ -2,15 +2,12 @@
 /* eslint-disable  no-console */
 'use strict';
 
-// https://github.com/alexa/skill-sample-nodejs-highlowgame/blob/master/lambda/custom/index.js
-//
 require('dotenv').config();
 const Alexa = require('ask-sdk-core');
 //const Alexa = require('alexa-sdk');
 const APP_ID = undefined;
 const Api = require('./services/api.js');
 const sentences = require('./helpers/situation_sentences.js');
-const validations = require('./helpers/validation');
 const random = require('./helpers/random');
 
 //Api.findTopSong('pop').then(console.log);
@@ -71,17 +68,28 @@ const BestSongIntentHandler = {
             && handlerInput.requestEnvelope.request.intent.name === 'BestSongIntent';
     },
     handle(handlerInput) {
-        return Api.findTopSong(handlerInput.requestEnvelope.request.intent.slots.Tag.value)
-            .then(songs => {
-                let song = songs[random.randomNumber(songs.length)];
-                let speech = song.title + ' de ' + song.artist;
-                return handlerInput.responseBuilder
-                    .speak(speechText)
-                    .reprompt(speechText)
-                    .withSimpleCard('Erreur', speechText)
-                    .getResponse();
+        if (handlerInput.requestEnvelope.request.intent.slots.Tag.value !== undefined) {
+            return Api.findTopSong(handlerInput.requestEnvelope.request.intent.slots.Tag.value, 20)
+                .then(songs => {
+                    let song = songs[random.randomNumber(songs.length)];
+                    let speechText = sentences.randomMusicTopSentence(
+                        song.title + ' de ' + song.artist,
+                        handlerInput.requestEnvelope.request.intent.slots.Tag.value);
+                    return handlerInput.responseBuilder
+                        .speak(speechText)
+                        .reprompt(speechText)
+                        .withSimpleCard('Erreur', speechText)
+                        .getResponse();
 
-            })
+                })
+        } else {
+            return handlerInput.responseBuilder
+                .speak('De quel type ? ')
+                .reprompt('De quel type ? ')
+                .withSimpleCard('Erreur', 'De quel type ? ')
+                .getResponse();
+        }
+
     }
 };
 
@@ -224,43 +232,3 @@ exports.handler = skillBuilder
     )
     .addErrorHandlers(ErrorHandler)
     .lambda();
-
-/*const handlers = {
-    'LaunchRequest': function () {
-        this.emit(':ask', sentences.randomOpenningSentence())
-    },
-    'FindSongNameIntent': function () {
-        if (this.event.request.error ||!validations.isSlotValid(this.event.request.intent, 'Lyrics')) {
-            this.emit('ErrorIntent')
-        } else {
-            this.emit(':ask',  this.event.request.intent.slots.Lyrics.value, 'C\'est bien ce que tu cherchais ?');
-        }
-    },
-    'ErrorIntent': function () {
-        this.emit(':ask', 'Désolé boss, il me manque les paroles', 'Ok');
-    },
-    'AMAZON.HelpIntent': function () {
-        const speechOutput = sentences.randomHelpSentence();
-        const reprompt = "Donne une parole";
-
-        this.response.speak(speechOutput).listen(reprompt);
-        this.emit(':responseReady');
-    },
-    'AMAZON.CancelIntent': function () {
-        this.response.speak(sentences.randomCloseSentence());
-        this.emit(':responseReady');
-    },
-    'AMAZON.StopIntent': function () {
-        this.response.speak(sentences.randomCloseSentence());
-        this.emit(':responseReady');
-    },
-};
-
-exports.handler = function (event, context, callback) {
-    const alexa = Alexa.handler(event, context, callback);
-    alexa.APP_ID = APP_ID;
-    alexa.registerHandlers(handlers);
-    alexa.execute();
-};
-
-*/

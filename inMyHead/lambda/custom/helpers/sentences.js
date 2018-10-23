@@ -5,24 +5,32 @@ const sentences = {
         'Du travail pour moi boss ?',
         'Hey ! Laisse moi t\'aider avec la musique que tu as dans la tête !',
         'C\'est qui cette Alexa dont tout le monde parle ?',
-        'Oui je le suis ! Je vais trouver le titre que tu cherches !',
+        'Oui je suis là ! Je vais trouver le titre que tu cherches !',
         'Un titre contre des paroles ! Marché conclut ?',
-        'Que me voulez vous ?'
+        'Qu\'est ce que je peux faire pour t\'aider ?'
     ],
     HELP_SENTENCES: [
         'Donne moi juste des paroles je ferai le reste !',
         'Je trouve les titres de chanson dont tu connais les paroles !',
         'Si tu parles clairement je devrais m\'en sortir !',
-        'Donne moi des paroles. Par exemple: ramenez la coupe à la maison !'
+        'Donne moi des paroles. Par exemple: ramenez la coupe à la maison !',
+        'Commence ta phrase par: trouver moi le titre de, ou c\'est quoi le titre de. ' +
+        'Puis donne moi les paroles et le tour est joué !'
     ],
     MUSIC_SEARCH_RETURN_SENTENCES: [ // '*' will be replace by the title of the song
         'J\'aime bien celle la, *, pas toi ?',
-        '*, une chason magnifique, tu aimes aussi ?',
+        '*, une chanson magnifique, tu aimes aussi ?',
         'Si mes recherches sont exactes, c\'est * que tu cherchais ?',
         'C\'est bien * ?',
         'Je parie que c\'est celle là * ?',
         'Je pense que c\'est *',
         'Je tente ma chance, *, J\'ai juste ?'
+    ],
+    MUSIC_SEARCH_TOP_SENTENCES: [
+        'Pour le genre #, je te propose *, un grand classique !',
+        '*, un titre incontournable du genre # !',
+        'Qui peut s\'asseoir à une table et dire qu\'il est meilleur que * en # ? ',
+        '*, le meilleur du genre # !'
     ],
     SUCCESS: [
         'Où est la concurrence ?',
@@ -40,7 +48,7 @@ const sentences = {
         'J\'ai épuisé le stock, plus aucune proposition...',
         'J\'ai plus rien à proposer essayez autre chose',
         'J\'ai plus rien... Je ferai mieux la prochaine fois. Promis !',
-        'Hum... Je n\'ai pas réuissi à trouvé cette fois ci...',
+        'Hum... Je n\'ai pas réussi à trouvé cette fois ci...',
         'J\'ai plus rien, j\'ai honte..',
         'Je n\'ai pas trouvé.. Que celui qui n\'a jamais péché me jette la première pierre !'
     ],
@@ -65,7 +73,7 @@ const sentences = {
         'Tu veux quoi ?',
         'Ok !',
         'D\'accord',
-        'Je ne t\'ai rien demandé !',
+        'Je n\'ai rien demandé !',
         'Hum...',
         'Très bien alors',
         'Ah bon, Tu veux jouer au ni Oui ni Non ? Dommage tu as déjà perdu !'

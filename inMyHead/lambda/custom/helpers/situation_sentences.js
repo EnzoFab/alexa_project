@@ -43,5 +43,10 @@ module.exports = {
     randomFailureSentence () {
         let limit = random.randomNumber(sentences.FAILURE.length);
         return sentences.FAILURE[limit]
+    },
+
+    randomMusicTopSentence (title, type) {
+        let limit = random.randomNumber(sentences.MUSIC_SEARCH_TOP_SENTENCES.length);
+        return sentences.MUSIC_SEARCH_TOP_SENTENCES[limit].replace('*', title).replace('#', type)
     }
 };
