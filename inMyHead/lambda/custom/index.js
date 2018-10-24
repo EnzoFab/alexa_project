@@ -168,11 +168,15 @@ const NoIntentHandler = {
             });
         } else { // no more option
             speechText = sentences.randomFailureSentence();
+            handlerInput.attributesManager.setSessionAttributes({
+                songs: undefined,
+                index: undefined
+            });
         }
         return handlerInput.responseBuilder
             .speak(speechText)
             .reprompt(speechText)
-            .withSimpleCard('Yes intent', speechText)
+            .withSimpleCard('No intent', speechText)
             .getResponse();
     }
 };

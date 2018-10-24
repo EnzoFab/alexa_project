@@ -3,13 +3,33 @@
     "publishingInformation": {
       "locales": {
         "fr-FR": {
-          "name": "inMyHead"
-      }
-
+          "summary": "Try to find a song title according lyrics given by the user",
+          "examplePhrases": [
+            "Trouve moi le titre de tu continues à danser",
+            "C'est quoi le titre de ramenez la coupe à la maison",
+            "Le top du genre du trap"
+          ],
+          "keywords": [
+            "Lyrics",
+            "Song",
+            "recognition",
+            "Genius",
+            "Last",
+            "fm",
+            "Api",
+            "In",
+            "my",
+            "Head"
+          ],
+          "name": "inMyHead",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/b221/351c5411cd024560b5e67c0c15443e30/APP_ICON?versionId=wInjn7CaQy23pEvI_aybzE_RaPBEvQnP&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540423411&Signature=Ei8gxY%2Bmihk2j713GvORgfVa1cY%3D",
+          "description": "First the user needs to say \"Salut\" to start the conversation with the application. Then he can either give some lyrics to find out a song title or get the top song of a music category (like rap or pop).\nNo requirement, but even if it's a related to music the application do not support singing, the instruction needs to be as clear as possible. \nAnynone can use the application and nothing will be stored after Alexa shut the conversation.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/78fb/0a12d2d1e4b64cf0b6a13bf4739116f2/APP_ICON_LARGE?versionId=PonoTYBDoqWyIjDOfmoi2QS7e7MfqVCG&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540423411&Signature=W1jaikho3UxNIZ9BObw8%2FY87yKk%3D"
+        }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Sample Testing Instructions.",
-      "category": "EDUCATION_AND_REFERENCE",
+      "testingInstructions": "Sample Testing Instructions.\nSay: \"Salut toi\"\nThen say: \"Trouve moi le titre de ramenez la coupe à la maison\"\nIf the song isn't the one you wanted to find say: \"Non\" it will find another song with the same lyrics \nOtherwise say \"Oui\"\n\nIf you want the top song of a category just say: \"Le top du genre trap\" it will give you a song that is in the top songs of the category",
+      "category": "MUSIC_INFO_REVIEWS_AND_RECOGNITION_SERVICE",
       "distributionCountries": []
     },
     "apis": {
@@ -19,6 +39,13 @@
         }
       }
     },
-    "manifestVersion": "1.0"
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
   }
 }

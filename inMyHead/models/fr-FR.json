@@ -98,7 +98,8 @@
               "samples": [
                 "top du genre {Tag}",
                 "meilleurs sons  du genre {Tag}",
-                "meilleures musiques du genre {Tag}"
+                "meilleures musiques du genre {Tag}",
+                "Ton titre préféré {Tag}"
               ]
             }
           ],

@@ -3,19 +3,23 @@ const sentences = {
         'Salut l\'ami ! Je sens que tu as besoin d\'aide',
         'Salut toi ! Je vais essayer de trouver le titre de ta chanson, tu as les paroles ?',
         'Du travail pour moi boss ?',
+        'Bonjour, bonjour, je peux aider ?',
         'Hey ! Laisse moi t\'aider avec la musique que tu as dans la tête !',
         'C\'est qui cette Alexa dont tout le monde parle ?',
         'Oui je suis là ! Je vais trouver le titre que tu cherches !',
         'Un titre contre des paroles ! Marché conclut ?',
-        'Qu\'est ce que je peux faire pour t\'aider ?'
+        'Qu\'est ce que je peux faire pour t\'aider ?',
+        'Je t\'ecoute'
     ],
     HELP_SENTENCES: [
         'Donne moi juste des paroles je ferai le reste !',
         'Je trouve les titres de chanson dont tu connais les paroles !',
         'Si tu parles clairement je devrais m\'en sortir !',
         'Donne moi des paroles. Par exemple: ramenez la coupe à la maison !',
-        'Commence ta phrase par: trouver moi le titre de, ou c\'est quoi le titre de. ' +
-        'Puis donne moi les paroles et le tour est joué !'
+        'Commence ta phrase par: <emphasis level="strong">trouver moi le titre de, ou c\'est quoi le titre de</emphasis>. ' +
+        'Puis donne moi les paroles et le tour est joué !',
+        'Tu peux aussi avoir mes chansons préféré par genre ! ' +
+        '<emphasis level="strong">exemple: Ton titre préféré Pop</emphasis>'
     ],
     MUSIC_SEARCH_RETURN_SENTENCES: [ // '*' will be replace by the title of the song
         'J\'aime bien celle la, *, pas toi ?',
@@ -36,8 +40,9 @@ const sentences = {
         'Où est la concurrence ?',
         'La seule chose que je ne sais pas, pourquoi je sais tout ?',
         'Encore gagné !',
+        'Coup de chance ? Hum.. je crois pas !',
         'Autre chose ?',
-        'Je m\'impression toute seule',
+        'Je m\'impressionne toute seule',
         'Moi aussi je suis championne du monde qu\'est ce que tu crois !',
         'je suis devenu celui dont aurait rêvé celui que je rêvais d\'être !',
         'Qui a parlé d\'efficacité ?',
@@ -50,14 +55,20 @@ const sentences = {
         'J\'ai plus rien... Je ferai mieux la prochaine fois. Promis !',
         'Hum... Je n\'ai pas réussi à trouvé cette fois ci...',
         'J\'ai plus rien, j\'ai honte..',
-        'Je n\'ai pas trouvé.. Que celui qui n\'a jamais péché me jette la première pierre !'
+        'Je n\'ai pas trouvé.. Que celui qui n\'a jamais péché me jette la première pierre !',
+        'Je ne sais plus quoi dire..'
     ],
     MUSIC_NOT_FOUND_SENTENCES: [ // go to the next music
         'Laisse moi réessayer, * ?',
         'C\'est peut-être celle-ci, * ?',
         '*, me semble un meilleur choix !',
         'C\'est forcément celle là, * !',
-        'Ca ne peut être que, * !'
+        'Ca ne peut être que, * !',
+        '* ?',
+        'Je pense que c\'est *',
+        'Je retente ma chance, * ?',
+        'C\'est *, Plus aucun doute !',
+        'Pourquoi pas celle-ci, * ?'
     ],
     YES_SENTENCES: [
         'Ah bon, Tu veux jouer au ni Oui ni Non ? Dommage tu as déjà perdu !',
