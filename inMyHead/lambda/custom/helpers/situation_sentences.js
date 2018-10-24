@@ -19,8 +19,8 @@ module.exports = {
     },
     randomSearchMusicSentence: (title) => {
         let limit = random.randomNumber(sentences.MUSIC_SEARCH_RETURN_SENTENCES.length);
-        return `<speak>${sentences.MUSIC_SEARCH_RETURN_SENTENCES[limit]
-            .replace('*', `<prosody rate="slow">${title}</prosody>`)}</speak>`
+        let src = sentences.MUSIC_SEARCH_RETURN_SENTENCES[limit].replace('*',title);
+        return `<speak>${src}</speak>`
     },
     randomYesSentence () {
         let limit = random.randomNumber(sentences.YES_SENTENCES.length);
@@ -39,7 +39,7 @@ module.exports = {
     randomMusicNotFoundSentence (title) {
         let limit = random.randomNumber(sentences.MUSIC_NOT_FOUND_SENTENCES.length);
         return `<speak>${sentences.MUSIC_NOT_FOUND_SENTENCES[limit]
-            .replace('*', `<prosody rate="slow">${title}</prosody>`)}</speak>`
+            .replace('*', title)}</speak>`
     },
 
     randomFailureSentence () {
@@ -49,7 +49,7 @@ module.exports = {
 
     randomMusicTopSentence (title, type) {
         let limit = random.randomNumber(sentences.MUSIC_SEARCH_TOP_SENTENCES.length);
-        return `<speak>${sentences.MUSIC_SEARCH_TOP_SENTENCES[limit].replace('*', 
-            `<prosody rate="slow">${title}</prosody>`).replace('#', type)}</speak>`
+        let str = sentences.MUSIC_SEARCH_TOP_SENTENCES[limit].replace('*', title).replace('#', type)
+        return `<speak>${str}</speak>`
     }
 };
