@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "salut toi",
+      "invocationName": "dans ma tête",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
@@ -42,26 +42,28 @@
           ]
         },
         {
-          "name": "FindSongNameIntent",
+          "name": "TrouverChansonIntent",
           "slots": [
             {
-              "name": "Lyrics",
+              "name": "Parole",
               "type": "AMAZON.SearchQuery"
             }
           ],
           "samples": [
-            "connais tu {Lyrics}",
-            "trouve moi {Lyrics}",
-            "parole {Lyrics}",
-            "peux tu me trouver ces paroles {Lyrics}",
-            "peux tu me trouver le titre de {Lyrics}",
-            "le titre de {Lyrics}",
-            "C'est quoi le titre de {Lyrics}",
-            "Tu connais {Lyrics}",
-            "Mon gars tu connais {Lyrics}",
-            "Je cherche le titre de {Lyrics}",
-            "Retrouve moi le titre de {Lyrics}",
-            "Trouve moi le titre de {Lyrics}"
+            "connais tu le titre de {Parole}",
+            "Quel est le titre de {Parole}",
+            "trouve moi la chanson {Parole}",
+            "parole {Parole}",
+            "peux tu me trouver ces paroles {Parole}",
+            "peux tu me trouver le titre de {Parole}",
+            "le titre de {Parole}",
+            "C'est quoi le titre de {Parole}",
+            "Tu connais le titre de {Parole}",
+            "Mon gars tu connais {Parole}",
+            "Je cherche le titre de {Parole}",
+            "Retrouve moi le titre de {Parole}",
+            "Trouve moi le titre de {Parole}",
+            "Donne moi le titre de {Parole}"
           ]
         },
         {
@@ -90,7 +92,7 @@
           ]
         },
         {
-          "name": "BestSongIntent",
+          "name": "MeilleureChansonIntent",
           "slots": [
             {
               "name": "Tag",
@@ -105,7 +107,7 @@
           ],
           "samples": [
             "sors moi le top du genre {Tag}",
-            "les meilleures musique du genre {Tag}",
+            "les meilleures musiques du genre {Tag}",
             "Le top du genre {Tag}"
           ]
         }
@@ -176,12 +178,12 @@
     "dialog": {
       "intents": [
         {
-          "name": "FindSongNameIntent",
+          "name": "TrouverChansonIntent",
           "confirmationRequired": false,
           "prompts": {},
           "slots": [
             {
-              "name": "Lyrics",
+              "name": "Parole",
               "type": "AMAZON.SearchQuery",
               "confirmationRequired": false,
               "elicitationRequired": true,
@@ -192,7 +194,7 @@
           ]
         },
         {
-          "name": "BestSongIntent",
+          "name": "MeilleureChansonIntent",
           "confirmationRequired": false,
           "prompts": {},
           "slots": [

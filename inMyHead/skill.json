@@ -3,9 +3,9 @@
     "publishingInformation": {
       "locales": {
         "fr-FR": {
-          "summary": "Try to find a song title according lyrics given by the user",
+          "summary": "Essaie de trouve le titre d'une chason en fonction des paroles données par l'utilisateur",
           "examplePhrases": [
-            "Trouve moi le titre de tu continues à danser",
+            "Alexa, ouvre dans ma tête",
             "C'est quoi le titre de ramenez la coupe à la maison",
             "Le top du genre du trap"
           ],
@@ -21,14 +21,14 @@
             "my",
             "Head"
           ],
-          "name": "inMyHead",
+          "name": "Dans Ma Tête",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/b221/351c5411cd024560b5e67c0c15443e30/APP_ICON?versionId=wInjn7CaQy23pEvI_aybzE_RaPBEvQnP&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540423411&Signature=Ei8gxY%2Bmihk2j713GvORgfVa1cY%3D",
-          "description": "First the user needs to say \"Salut\" to start the conversation with the application. Then he can either give some lyrics to find out a song title or get the top song of a music category (like rap or pop).\nNo requirement, but even if it's a related to music the application do not support singing, the instruction needs to be as clear as possible. \nAnynone can use the application and nothing will be stored after Alexa shut the conversation.",
+          "description": "Dans un premier temps l'utilsateur doit ouvrir l'application en disant  \" Dans ma tête\" Ce qui engagera la conversation avec l'application.\nEnsuite, Deuxh chois s'offrent à l'utilisateur: Il peut soit chercher le titre d'une chanson en donnant les paroles à Alexa ou obtenir la meilleur chanson d'une catégorié de musique (par exemple: Pop, Rap, Rock,...).\n Il n'y a pas de prérequis. Même si l'application à un lien direct avec la musique, elle ne supporte pas le chant. Toute les instructions devront être les plus claires possibles pour un meilleur résultat de l'application. \nTout le monde peut utiliser l'application. Aucune données ne sera stocké à la fermeture de l'application",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/78fb/0a12d2d1e4b64cf0b6a13bf4739116f2/APP_ICON_LARGE?versionId=PonoTYBDoqWyIjDOfmoi2QS7e7MfqVCG&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540423411&Signature=W1jaikho3UxNIZ9BObw8%2FY87yKk%3D"
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Sample Testing Instructions.\nSay: \"Salut toi\"\nThen say: \"Trouve moi le titre de ramenez la coupe à la maison\"\nIf the song isn't the one you wanted to find say: \"Non\" it will find another song with the same lyrics \nOtherwise say \"Oui\"\n\nIf you want the top song of a category just say: \"Le top du genre trap\" it will give you a song that is in the top songs of the category",
+      "testingInstructions": "Sample Testing Instructions.\n: Commencez par: \"Alexa, ouvre dans ma tête\"\nEnsuite: \"Trouve moi le titre de ramenez la coupe à la maison\"\nSi le titre proposez par Alexa n'est pas celui attendu: \"Non\" L'application va chercher à en trouver un autre\nDans le cas contraire \"Oui\"\n\nSi vous voulez une des meilleurs chansons (Choisie au hasard) d'une catégorie: \"Le top du genre trap\"",
       "category": "MUSIC_INFO_REVIEWS_AND_RECOGNITION_SERVICE",
       "distributionCountries": []
     },

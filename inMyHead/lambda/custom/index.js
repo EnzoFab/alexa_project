@@ -21,19 +21,20 @@ const LaunchRequestHandler = {
     const speechText = sentences.randomOpenningSentence();
     return handlerInput.responseBuilder
       .speak(speechText)
-      .reprompt(speechText)
+      .reprompt("Demande moi de trouver le titre d'une musique,\n" +
+          "ou demande moi de trouver la meilleur chanson du genre de musique de ton chois")
       .withSimpleCard('Tu cherches un titre ?', speechText)
       .getResponse();
   },
 };
 
-const FindSongNameIntentHandler = {
+const TrouverChansonIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-            && handlerInput.requestEnvelope.request.intent.name === 'FindSongNameIntent';
+            && handlerInput.requestEnvelope.request.intent.name === 'TrouverChansonIntent';
     },
     handle(handlerInput) {
-        return Api.search(handlerInput.requestEnvelope.request.intent.slots.Lyrics.value)
+        return Api.search(handlerInput.requestEnvelope.request.intent.slots.Parole.value)
             .then(songs => {
                 let index = 0;  // current songs returns to the users
                 // first we return the first result then in the no intent we will return other songs
@@ -62,23 +63,23 @@ const FindSongNameIntentHandler = {
     },
 };
 
-const BestSongIntentHandler = {
+const MeilleureChansonIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-            && handlerInput.requestEnvelope.request.intent.name === 'BestSongIntent';
+            && handlerInput.requestEnvelope.request.intent.name === 'MeilleureChansonIntent';
     },
     handle(handlerInput) {
-        if (handlerInput.requestEnvelope.request.intent.slots.Tag.value !== undefined) {
-            return Api.findTopSong(handlerInput.requestEnvelope.request.intent.slots.Tag.value, 20)
+        if (handlerInput.requestEnvelope.request.intent.slots.Tag.value !== undefined || handlerInput.requestEnvelope.request.intent.slots.Tag.value !== '') {
+            return Api.findTopSong(handlerInput.requestEnvelope.request.intent.slots.Tag.value, 50)
                 .then(songs => {
-                    let song = songs[random.randomNumber(songs.length)];
+                    let song = songs[random.randomNumber(songs.length - 1)];
                     let speechText = sentences.randomMusicTopSentence(
                         song.title + ' de ' + song.artist,
                         handlerInput.requestEnvelope.request.intent.slots.Tag.value);
                     return handlerInput.responseBuilder
                         .speak(speechText)
                         .reprompt(speechText)
-                        .withSimpleCard('Erreur', speechText)
+                        .withSimpleCard('Resultat', speechText)
                         .getResponse();
 
                 })
@@ -86,7 +87,7 @@ const BestSongIntentHandler = {
             return handlerInput.responseBuilder
                 .speak('De quel type ? ')
                 .reprompt('De quel type ? ')
-                .withSimpleCard('Erreur', 'De quel type ? ')
+                .withSimpleCard('Erreur', 'Il manque le type de musique')
                 .getResponse();
         }
 
@@ -103,8 +104,31 @@ const HelpIntentHandler = {
 
         return handlerInput.responseBuilder
             .speak(speechText)
-            .reprompt(speechText)
-            .withSimpleCard('Aide', speechText)
+            .reprompt(`Autre choses ?`)
+            .withSimpleCard('Aide', `Si tu cherches un titre choisis parmis les phrases suivantes suivies des paroles de la musiques
+
+                connais tu le titre de {Paroles},
+
+            trouve moi la chanson {Paroles},
+
+            parole {Paroles},
+
+            peux tu me trouver ces paroles {Paroles},
+
+            peux tu me trouver le titre de {Paroles},
+
+            le titre de {Paroles},
+
+            C'est quoi le titre de {Paroles},
+
+            Tu connais le titre de{Paroles},
+
+            Je cherche le titre de {Paroles},
+
+            Retrouve moi le titre de {Paroles},
+
+            Trouve moi le titre de {Paroles}
+ `)
             .getResponse();
     },
 };
@@ -120,7 +144,7 @@ const CancelAndStopIntentHandler = {
 
         return handlerInput.responseBuilder
             .speak(speechText)
-            .withSimpleCard('A bientot mon pote', speechText)
+            .withSimpleCard('A bientot mon pote', '')
             .getResponse();
     },
 };
@@ -227,8 +251,8 @@ exports.handler = skillBuilder
         LaunchRequestHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
-        FindSongNameIntentHandler,
-        BestSongIntentHandler,
+        TrouverChansonIntentHandler,
+        MeilleureChansonIntentHandler,
         YesIntentHandler,
         NoIntentHandler,
         SessionEndedRequestHandler,
