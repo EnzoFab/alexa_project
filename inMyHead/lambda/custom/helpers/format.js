@@ -43,6 +43,10 @@ const replacer = [
     {
         origin: '&',
         replace: ' et '
+    },
+    {
+        origin: ' English Translation',
+        replace: 'Traduction de l\'angalais'
     }
 
 

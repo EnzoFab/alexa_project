@@ -1,25 +1,29 @@
 const sentences = {
     OPENNING_SENTENCES: [
-        'Salut l\'ami ! Je sens que tu as besoin d\'aide',
+        'Bienvenue dans ma tête, si c\'est ta première utilisation tu peux demander de l\'aide en disant: "aide moi". ' +
+        'Qu\'est ce que je peux faire pour toi ?',
+        'Bonjour ! Commence ta phrase par: trouver moi le titre de, ou c\'est quoi le titre de. ' +
+        'Puis donne moi les paroles. J\'essaierai de trouver un titre. ' +
+        'Tu peux aussi me demander la meilleure musique de ton genre musical préféré',
         'Je vais essayer de trouver le titre de ta chanson, tu as les paroles ?',
-        'Quelles sont les paroles de ta chanson ?',
-        'Demande moi trouver le titre d\'une musique en me donnant des paroles, ' +
-        'ou demande de mot la meilleure musique de ton genre musical préféré. Je peux t\'aider ?',
-        'Hey ! Laisse moi t\'aider avec la musique que tu as dans la tête !',
-        'Oui je suis là ! Je vais trouver le titre que tu cherches !',
-        'Un titre contre des paroles ! Marché conclut ?',
-        'Qu\'est ce que je peux faire pour t\'aider ?',
-        'Je t\'ecoute, donne moi des paroles je trouverai le titre',
-        'As tu les paroles du titre de musique que tu cherches ?'
+        'Bonjour, demande moi trouver le titre d\'une musique en me donnant des paroles, ' +
+        'ou demande de moi la meilleure musique de ton genre musical préféré.',
+        'Laisse moi t\'aider. Demande moi le titre d\'une musique dont tu connais quelques paroles' +
+        ' j\'essaierai de te la retrouver',
+        //'Oui je suis là ! Je vais trouver le titre que tu cherches !',
+        //'Un titre contre des paroles ! Marché conclut ?',
+        //'Qu\'est ce que je peux faire pour t\'aider ?',
+        //'Je t\'ecoute, donne moi des paroles je trouverai le titre',
+        //'As tu les paroles du titre de musique que tu cherches ?'
     ],
     HELP_SENTENCES: [
-        'Je trouve les titres de chanson dont tu connais les paroles ! Tu peux dire: Donne moi le titre de ramenez la coupe à la maison !',
-        'Si les titres renvoyés ne conviennent pas, essaie de parler lentement. ',
-        'Donne moi des paroles. Par exemple: ramenez la coupe à la maison !',
-        'Commence ta phrase par: trouver moi le titre de, ou c\'est quoi le titre de. ' +
-        'Puis donne moi les paroles et le tour est joué !',
-        'Tu peux aussi avoir mes chansons préféré par genre ! ' +
-        'exemple: Ton titre préféré Pop',
+        'Je trouve les titres de chanson dont tu connais les paroles ! Par exemple tu peux dire: Donne moi le titre de ramenez la coupe à la maison !',
+        'Pour trouver un titre, donne moi les paroles en commençant ta phrase par : "Donne moi le titre de" ou "connais tu le titre de". ' +
+        'Si le titre renvoyé ne convient pas, tu peux passer au titre suivant en disant: "essaie la suivante" ou "pas du tout".' +
+        'Si aucune proposition ne convient essaie recommencer en parlant lentement. ' +
+        'Tu peux aussi valider une proposition pour que j\'arrête de chercher en disant "Oui c\'est celle là" ou "Tout à fait" ',
+        'Tu peux aussi avoir mes chansons préférées par genre ! ' +
+        'Par exemple: "Ton titre préféré Pop" ou "les meilleures musiques du genre Trap"',
         `Si tu cherches un titre choisis parmis les phrases suivantes
 
                 connais tu le titre de ,
@@ -59,7 +63,7 @@ const sentences = {
         '*, le meilleur du genre # !'
     ],
     SUCCESS: [
-        'Où est la concurrence ?',
+        //'Où est la concurrence ?',
         'La seule chose que je ne sais pas, pourquoi je sais tout ?',
         'Encore gagné !',
         'Coup de chance ? Hum.. je ne crois pas !',
@@ -76,7 +80,7 @@ const sentences = {
         'Je n\'ai plus rien à proposer essayez autre chose',
         'Je n\'ai plus rien... Je ferai mieux la prochaine fois. Promis !',
         'Hum... Je n\'ai pas réussi à trouvé cette fois ci...',
-        'J\'ai plus rien',
+        'Je n\'ai plus rien',
         'Je ne sais plus quoi dire..',
         'Je ne peux pas faire mieux désolé...'
     ],
@@ -108,7 +112,7 @@ const sentences = {
         'Je n\'ai rien demandé !',
         'Hum...',
         'Très bien alors !',
-        'Ah bon, vous voulez jouer au ni Oui ni Non ?'
+        'Ah bon, vous voulez jouer au ni Oui ni Non ? Dommage je n\'ai pas cette fonctionnalité'
     ], // returns to a basic no intent => the user haven't searched yet
     CLOSE_SENTENCES: [
         'Aurevoir !',

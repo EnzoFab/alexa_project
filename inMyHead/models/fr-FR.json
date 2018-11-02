@@ -21,6 +21,9 @@
             "Comment tu fonctionnes",
             "Comment ça marche",
             "A l'aide",
+            "Aide moi",
+            "J'ai besoin d'explication",
+            "Je ne comprends pas",
             "Aide moi s'il te plait",
             "Explique moi comment ça marche"
           ]
@@ -50,12 +53,12 @@
             }
           ],
           "samples": [
-            "connais tu le titre de {Parole}",
+            "Connais tu le titre de {Parole}",
             "Quel est le titre de {Parole}",
             "trouve moi la chanson {Parole}",
             "parole {Parole}",
-            "peux tu me trouver ces paroles {Parole}",
-            "peux tu me trouver le titre de {Parole}",
+            "Peux tu me trouver ces paroles {Parole}",
+            "Peux tu me trouver le titre de {Parole}",
             "le titre de {Parole}",
             "C'est quoi le titre de {Parole}",
             "Tu connais le titre de {Parole}",

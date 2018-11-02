@@ -38,7 +38,7 @@ module.exports = {
     randomMusicNotFoundSentence (title) {
         let limit = random.randomNumber(sentences.MUSIC_NOT_FOUND_SENTENCES.length);
         return `${sentences.MUSIC_NOT_FOUND_SENTENCES[limit]
-            .replace('*', title)} Je peux faire autre choses ? `
+            .replace('*', title)}`
     },
 
     randomFailureSentence () {

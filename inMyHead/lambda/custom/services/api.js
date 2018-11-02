@@ -13,19 +13,20 @@ module.exports = {
      */
     search (lyrics) {
         let formatedLyrics = format.formatSlotValue(lyrics);
-        return genius.search(formatedLyrics).then(result => {
-            let data = [];
+        return genius.search(formatedLyrics)
+            .then(result => {
+                let data = [];
 
-            for(let i = 0; i < result.hits.length; i++) {
-                data.push({
-                    title: format.formatTitle(result.hits[i].result.full_title),
-                    artist:  result.hits[i].result.primary_artist.name
-                })
-            }
+                for(let i = 0; i < result.hits.length; i++) {
+                    data.push({
+                        title: format.formatTitle(result.hits[i].result.full_title),
+                        artist:  result.hits[i].result.primary_artist.name
+                    })
+                }
 
-            if (data.length === 0) throw 'Aucune chanson n\'a été trouvée';
-            else return data;
-        })
+                if (data.length === 0) throw 'Aucune chanson n\'a été trouvée';
+                else return data;
+            })
     },
 
     findTopSong (tag, limit = 10) {
