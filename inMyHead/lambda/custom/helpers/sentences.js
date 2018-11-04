@@ -2,10 +2,10 @@ const sentences = {
     OPENNING_SENTENCES: [
         'Bienvenue dans ma tête, si c\'est ta première utilisation tu peux demander de l\'aide en disant: "aide moi". ' +
         'Qu\'est ce que je peux faire pour toi ?',
-        'Bonjour ! Commence ta phrase par: trouver moi le titre de, ou c\'est quoi le titre de. ' +
+        'Dans ma tête il se passe beaucoup de chose ! Commence ta phrase par: "trouve moi le titre de", ou "c\'est quoi le titre de". ' +
         'Puis donne moi les paroles. J\'essaierai de trouver un titre. ' +
-        'Tu peux aussi me demander la meilleure musique de ton genre musical préféré',
-        'Je vais essayer de trouver le titre de ta chanson, tu as les paroles ?',
+        'Tu peux aussi me demander la meilleure musique de ton genre musical préféré. Je t\'ecoute ',
+        //'Je vais essayer de trouver le titre de ta chanson, tu as les paroles ?',
         'Bonjour, demande moi trouver le titre d\'une musique en me donnant des paroles, ' +
         'ou demande de moi la meilleure musique de ton genre musical préféré.',
         'Laisse moi t\'aider. Demande moi le titre d\'une musique dont tu connais quelques paroles' +
@@ -20,31 +20,15 @@ const sentences = {
         'Je trouve les titres de chanson dont tu connais les paroles ! Par exemple tu peux dire: Donne moi le titre de ramenez la coupe à la maison !',
         'Pour trouver un titre, donne moi les paroles en commençant ta phrase par : "Donne moi le titre de" ou "connais tu le titre de". ' +
         'Si le titre renvoyé ne convient pas, tu peux passer au titre suivant en disant: "essaie la suivante" ou "pas du tout".' +
-        'Si aucune proposition ne convient essaie recommencer en parlant lentement. ' +
-        'Tu peux aussi valider une proposition pour que j\'arrête de chercher en disant "Oui c\'est celle là" ou "Tout à fait" ',
+        'Si aucune proposition ne convient essaie de recommencer en parlant lentement. ' +
+        'Tu peux aussi valider une proposition pour que j\'arrête de chercher en disant "Oui c\'est celle là" ou "Tout à fait." ',
         'Tu peux aussi avoir mes chansons préférées par genre ! ' +
         'Par exemple: "Ton titre préféré Pop" ou "les meilleures musiques du genre Trap"',
-        `Si tu cherches un titre choisis parmis les phrases suivantes
-
-                connais tu le titre de ,
-
-            trouve moi la chanson ,
-
-            parole ,
-
-            peux tu me trouver ces paroles ,
-
-            peux tu me trouver le titre de ,
-
-            C'est quoi le titre de ,
-
-            Tu connais le titre de,
-
-            Je cherche le titre de ,
-
-            Retrouve moi le titre de ,
-
-            Trouve moi le titre de. Puis donne les paroles de ta musique.`
+        `Si tu cherches un titre, choisis parmi les phrases suivantes :
+                "connais tu le titre de" ,
+                "trouve moi la chanson ", "parole", "peux tu me trouver ces paroles", "peux tu me trouver le titre de", 
+                "C'est quoi le titre de", "Tu connais le titre de", "Je cherche le titre de", "Retrouve moi le titre de", 
+                "Trouve moi le titre de. Puis donne les paroles de ta musique".`
     ],
     MUSIC_SEARCH_RETURN_SENTENCES: [ // '*' will be replace by the title of the song
         'J\'aime bien celle la, *, pas toi ?',
@@ -64,7 +48,7 @@ const sentences = {
     ],
     SUCCESS: [
         //'Où est la concurrence ?',
-        'La seule chose que je ne sais pas, pourquoi je sais tout ?',
+        //'La seule chose que je ne sais pas, pourquoi je sais tout ?',
         'Encore gagné !',
         'Coup de chance ? Hum.. je ne crois pas !',
         'Ravie d\'avoir pu aider !',
@@ -97,7 +81,7 @@ const sentences = {
         'Pourquoi pas celle-ci, * ?'
     ],
     YES_SENTENCES: [
-        'Ah bon, vous voulez jouer au ni Oui ni Non ?',
+        'Ah bon ? Vous voulez jouer au ni Oui ni Non ? Dommage je n\'ai pas cette fonctionnalité !',
         'Oui quoi ?',
         'Plait-il ?',
         'Quoi encore ?',
@@ -112,7 +96,7 @@ const sentences = {
         'Je n\'ai rien demandé !',
         'Hum...',
         'Très bien alors !',
-        'Ah bon, vous voulez jouer au ni Oui ni Non ? Dommage je n\'ai pas cette fonctionnalité'
+        'Ah bon ? Vous voulez jouer au ni Oui ni Non ? Dommage je n\'ai pas cette fonctionnalité'
     ], // returns to a basic no intent => the user haven't searched yet
     CLOSE_SENTENCES: [
         'Aurevoir !',

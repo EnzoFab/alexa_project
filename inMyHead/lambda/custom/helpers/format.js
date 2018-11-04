@@ -2,11 +2,11 @@
 const replacer = [
     {
         origin: 'By',
-        replace: 'Par'
+        replace: 'de'
     },
     {
         origin: 'by',
-        replace: 'par'
+        replace: 'de'
     },
     {
         origin: 'feat.',
@@ -33,6 +33,10 @@ const replacer = [
         replace: '. '
     },
     {
+        origin: '.  ',
+        replace: '. '
+    },
+    {
         origin: `' `,
         replace: `'`
     },
@@ -46,7 +50,7 @@ const replacer = [
     },
     {
         origin: ' English Translation',
-        replace: 'Traduction de l\'angalais'
+        replace: 'Traduction de l\'anglais'
     }
 
 

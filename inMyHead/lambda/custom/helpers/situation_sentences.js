@@ -23,7 +23,7 @@ module.exports = {
     },
     randomYesSentence () {
         let limit = random.randomNumber(sentences.YES_SENTENCES.length);
-        return `${sentences.YES_SENTENCES[limit]} Je peux me rendre utile ?`
+        return `${sentences.YES_SENTENCES[limit]} Qu'est ce que je peux faire pour toi ?`
     },
 
     randomSuccessSentence () {
@@ -32,7 +32,7 @@ module.exports = {
     },
     randomNoSentence () {
         let limit = random.randomNumber(sentences.NO_SENTENCES.length);
-        return `${sentences.NO_SENTENCES[limit]} Je peux vous aider ?`
+        return `${sentences.NO_SENTENCES[limit]} Qu'est ce que je peux faire pour toi ?`
     },
 
     randomMusicNotFoundSentence (title) {
@@ -48,6 +48,6 @@ module.exports = {
 
     randomMusicTopSentence (title, type) {
         let limit = random.randomNumber(sentences.MUSIC_SEARCH_TOP_SENTENCES.length);
-        return sentences.MUSIC_SEARCH_TOP_SENTENCES[limit].replace('*', title).replace('#', type) + "Je peux faire autre chose ?"
+        return sentences.MUSIC_SEARCH_TOP_SENTENCES[limit].replace('*', title).replace('#', type) + "De quoi as tu besoin ?"
     }
 };

@@ -52,7 +52,7 @@ const TrouverChansonIntentHandler = {
                     songs: undefined,
                     index: undefined
                 });
-                const speechText = 'Désolé ' + e.toString();
+                const speechText = 'Désolé j\'ai un petit souci, essaie de recommencer';
                 return handlerInput.responseBuilder
                     .speak(speechText)
                     .reprompt(speechText)
@@ -71,6 +71,7 @@ const MeilleureChansonIntentHandler = {
     handle(handlerInput) {
         if (handlerInput.requestEnvelope.request.intent.slots.Tag.value !== undefined || handlerInput.requestEnvelope.request.intent.slots.Tag.value !== '') {
             return Api.findTopSong(handlerInput.requestEnvelope.request.intent.slots.Tag.value, 50)
+                            // essaie de chercher 50 resultats
                 .then(songs => {
                     let song = songs[random.randomNumber(songs.length - 1)];
                     let speechText = sentences.randomMusicTopSentence(
@@ -106,8 +107,7 @@ const HelpIntentHandler = {
             .speak(speechText)
             .reprompt(`Autre choses ?`)
             .withSimpleCard('Aide', `Si tu cherches un titre choisis parmis les phrases suivantes suivies des paroles de la musiques
-
-                connais tu le titre de {Paroles},
+             connais tu le titre de {Paroles},
 
             trouve moi la chanson {Paroles},
 
