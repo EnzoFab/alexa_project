@@ -169,7 +169,7 @@ const YesIntentHandler = {
         return handlerInput.responseBuilder
             .speak(speechText)
             .reprompt(speechText)
-            .withSimpleCard('Yes intent', speechText)
+            .withSimpleCard('Réponse positive', speechText)
             .getResponse();
     }
 };
@@ -184,24 +184,34 @@ const NoIntentHandler = {
         let speechText = '';
         if (attribute.songs === undefined) { // user call this intent without have searched a song before
             speechText = sentences.randomNoSentence();
+            return handlerInput.responseBuilder
+                .speak('D\'accord, à bientôt')
+                .withSimpleCard('Fermeture de la skill', 'A bientôt')
+                .getResponse();
         } else if (attribute.index + 1 < attribute.songs.length) { // there is at least one option
             speechText = sentences.randomMusicNotFoundSentence(attribute.songs[attribute.index + 1].title);
             handlerInput.attributesManager.setSessionAttributes({
                 songs: attribute.songs,
                 index: attribute.index + 1
             });
+            return handlerInput.responseBuilder
+                .speak(speechText)
+                .reprompt(speechText)
+                .withSimpleCard('Réponse négative', speechText)
+                .getResponse();
         } else { // no more option
             speechText = sentences.randomFailureSentence();
             handlerInput.attributesManager.setSessionAttributes({
                 songs: undefined,
                 index: undefined
             });
+            return handlerInput.responseBuilder
+                .speak(speechText)
+                .reprompt(speechText)
+                .withSimpleCard('Plus aucun résultat', speechText)
+                .getResponse();
         }
-        return handlerInput.responseBuilder
-            .speak(speechText)
-            .reprompt(speechText)
-            .withSimpleCard('No intent', speechText)
-            .getResponse();
+
     }
 };
 

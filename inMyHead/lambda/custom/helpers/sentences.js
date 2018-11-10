@@ -6,10 +6,10 @@ const sentences = {
         'Puis donne moi les paroles. J\'essaierai de trouver un titre. ' +
         'Tu peux aussi me demander la meilleure musique de ton genre musical préféré. Je t\'ecoute ',
         //'Je vais essayer de trouver le titre de ta chanson, tu as les paroles ?',
-        'Bonjour, demande moi trouver le titre d\'une musique en me donnant des paroles, ' +
-        'ou demande de moi la meilleure musique de ton genre musical préféré.',
-        'Laisse moi t\'aider. Demande moi le titre d\'une musique dont tu connais quelques paroles' +
-        ' j\'essaierai de te la retrouver',
+        //'Bonjour, demande moi trouver le titre d\'une musique en me donnant des paroles, ' +
+        //'ou demande de moi la meilleure musique de ton genre musical préféré.',
+        //'Laisse moi t\'aider. Demande moi le titre d\'une musique dont tu connais quelques paroles' +
+        //' j\'essaierai de te la retrouver',
         //'Oui je suis là ! Je vais trouver le titre que tu cherches !',
         //'Un titre contre des paroles ! Marché conclut ?',
         //'Qu\'est ce que je peux faire pour t\'aider ?',
@@ -37,7 +37,8 @@ const sentences = {
         'C\'est bien * ?',
         'Je parie que c\'est celle là * ?',
         'Je pense que c\'est *',
-        'Je tente ma chance, *, J\'ai juste ?'
+        'Je tente ma chance, *, J\'ai juste ?',
+        '*, Tu es satisfait du résultat ?'
     ],
     MUSIC_SEARCH_TOP_SENTENCES: [
         'Pour le genre #, je te propose *, un grand classique !',
@@ -54,9 +55,7 @@ const sentences = {
         'Ravie d\'avoir pu aider !',
         'J\'en etais sure !',
         'Super !',
-        'Génial !',
-        'Qui a parlé d\'efficacité ?',
-        'Pas convaincu ? Réessaie je te montre !'
+        'Génial !'
     ],
     FAILURE: [
         'Désolé je n\'ai rien trouvé',

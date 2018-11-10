@@ -50,7 +50,7 @@ const replacer = [
     },
     {
         origin: ' English Translation',
-        replace: 'Traduction de l\'anglais'
+        replace: ''
     }
 
 
